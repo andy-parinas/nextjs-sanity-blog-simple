@@ -15,6 +15,6 @@ export interface Post {
     slug: Slug
     author: Author
     // excerpt?: string
-    // mainImage?: ImageAsset
-    // body: PortableTextBlock[]
+    mainImage?: ImageAsset
+    body: PortableTextBlock[]
 }

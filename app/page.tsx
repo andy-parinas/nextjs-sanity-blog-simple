@@ -1,5 +1,7 @@
-import {getPosts} from "@/lib/sanityClient";
+import {getPosts, urlFor} from "@/lib/sanityClient";
 import {Post} from "@/types";
+import Link from "next/link";
+import type {SanityImageSource} from "@sanity/image-url/lib/types/types";
 
 
 export default async function Home() {
@@ -14,7 +16,12 @@ export default async function Home() {
             <div>
                 {posts.map((post: Post) => (
                     <div key={post._id}>
-                        <h2 className="text-2xl font-light">{post.title}</h2>
+                        <div>
+                            <img src={urlFor(post.mainImage as SanityImageSource).width(200).url()} />
+                        </div>
+                        <Link href={`/blogs/${post.slug.current}`}>
+                            <h2 className="text-2xl font-light">{post.title}</h2>
+                        </Link>
                         <div className="flex items-center gap-x-3 text-sm">
                             <span> {post.author.name} </span>
                             <span>{post._createdAt}</span>
