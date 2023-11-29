@@ -16,7 +16,7 @@ const client = createClient(config)
 
 export async function getPosts(){
     return await client.fetch<Post[]>(
-        '*[_type == "post"]{_id, title, mainImage, _createdAt, slug, author->{_id, name}}')
+        '*[_type == "post"]{_id, title, excerpt, mainImage, _createdAt, slug, author->{_id, name}}')
 }
 
 export async function getPost(slug: string){

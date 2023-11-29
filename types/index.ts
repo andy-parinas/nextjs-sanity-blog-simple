@@ -14,7 +14,7 @@ export interface Post {
     title?: string
     slug: Slug
     author: Author
-    // excerpt?: string
+    excerpt?: string
     mainImage?: ImageAsset
     body: PortableTextBlock[]
 }
