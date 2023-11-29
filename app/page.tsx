@@ -16,9 +16,13 @@ export default async function Home() {
             <div>
                 {posts.map((post: Post) => (
                     <div key={post._id}>
-                        <div>
-                            <img src={urlFor(post.mainImage as SanityImageSource).width(200).url()} />
-                        </div>
+                        {/*<div>*/}
+                        {/*    {post.mainImage?*/}
+                        {/*        <img src={urlFor(post.mainImage as SanityImageSource).width(200).url()} />*/}
+                        {/*    :*/}
+                        {/*        ""*/}
+                        {/*    }*/}
+                        {/*</div>*/}
                         <Link href={`/blogs/${post.slug.current}`}>
                             <h2 className="text-2xl font-light">{post.title}</h2>
                         </Link>

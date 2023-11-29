@@ -2,6 +2,8 @@ import {getPost, getPosts, urlFor} from "@/lib/sanityClient";
 import {PortableText, type PortableTextComponents} from "@portabletext/react";
 import Image from "next/image";
 import type {SanityImageSource} from "@sanity/image-url/lib/types/types";
+import SyntaxHighlighter from "react-syntax-highlighter"
+import { darcula } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 
 const SanityImage = ({ image }: {image: SanityImageSource}) => {
@@ -18,6 +20,12 @@ const SanityImage = ({ image }: {image: SanityImageSource}) => {
 const myPortableTextComponents: PortableTextComponents = {
     types: {
         image: ({value}: {value:any}) => <SanityImage image={value} />,
+        code: props => {
+            console.log(props.value.code)
+            return <SyntaxHighlighter language={props.value.language} style={darcula}>
+                {props.value.code}
+            </SyntaxHighlighter>
+        }
     },
     block: {
         h1: props => <h1 className="text-2xl mb-2">{props.children}</h1>,
