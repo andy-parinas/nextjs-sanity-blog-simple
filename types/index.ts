@@ -18,3 +18,8 @@ export interface Post {
     mainImage?: ImageAsset
     body: PortableTextBlock[]
 }
+
+export interface SiteTitle {
+    title: string
+    subTitle?: string
+}

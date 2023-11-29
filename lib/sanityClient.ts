@@ -1,6 +1,6 @@
 import {type ClientConfig} from "@sanity/client";
 import {createClient} from "next-sanity";
-import {Post} from "@/types";
+import {Post, SiteTitle} from "@/types";
 import createImageUrlBuilder from "@sanity/image-url";
 import type {SanityImageSource} from "@sanity/image-url/lib/types/types";
 import {ImageAsset} from "@sanity/types";
@@ -25,6 +25,13 @@ export async function getPost(slug: string){
             {_id, title,body, _createdAt, author->{_id, name}}`)
 
     return posts[0]
+}
+
+export async function getSiteTitle(){
+    const titles = await client.fetch<SiteTitle[]>(
+        `*[_type == "siteTitle"]{title,subTitle,}`)
+
+    return titles[0]
 }
 
 const builder = createImageUrlBuilder(client)

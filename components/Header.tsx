@@ -1,15 +1,32 @@
 import Link from "next/link";
 
 
-function Header() {
+interface Props {
+    title: string
+    subTitle?: string
+}
+
+
+function Header({title, subTitle}: Props) {
+
+
 
     return (
         <header  className="flex items-center justify-between py-10">
             <div>
                 <Link href="/">
                     <div>
-                        <h1 className="text-3xl font-bold">BlogName</h1>
-                        <span className="text-sm font-light">Blog Subtitle Goes Here</span>
+                        {title?
+                            <h1 className="text-3xl font-bold">{title}</h1>
+                            :
+                            <h1 className="text-3xl font-bold">BlogName</h1>
+
+                        }
+                        {subTitle?
+                            <span className="dark:text-gray-300">{subTitle}</span>
+                            :
+                            ""
+                        }
                     </div>
                 </Link>
             </div>
