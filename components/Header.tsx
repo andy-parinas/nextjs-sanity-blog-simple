@@ -34,12 +34,12 @@ function Header({title, subTitle}: Props) {
                 <Link href="/"
                     className="hidden font-medium sm:block"
                 >
-                    Home
+                    Home Edited
                 </Link>
                 <Link href="/about"
                       className="hidden font-medium sm:block"
                 >
-                    About
+                    About Edited
                 </Link>
             </div>
         </header>
